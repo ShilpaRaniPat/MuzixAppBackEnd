@@ -53,12 +53,7 @@ public class TrackServiceImpl implements TrackService{
     @Override
     public Track updateComment(Track track) throws TrackNotFoundException{
         Track updateTrack = null;
-        if(!trackRepository.existsById(track.getTrackId())){
-            updateTrack = trackRepository.save(track);
-        }
-        if(updateTrack==null){
-            throw new TrackNotFoundException("Track Not Found");
-        }
+        updateTrack = trackRepository.save(track);
         return updateTrack;
     }
 
